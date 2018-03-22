@@ -1,7 +1,7 @@
 import SERVER_URL from "../constants/server-url";
 
 export default function getDummyUsers() {
-  return fetch(`${SERVER_URL}/users`)
+  return fetch(`${SERVER_URL}/cars`)
     .then(handleErrors)
     .then(res => res.json());
 }
