@@ -1,20 +1,13 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+// import getDummyUsers from "./services/dummy-users";
+import { fetchCars } from "./redux/actions/cars.thunk";
 import logo from "./logo.svg";
 import "./app.css";
-import getDummyUsers from "./services/dummy-users";
 
 class App extends Component {
-  state = {
-    users: []
-  };
   componentDidMount() {
-    // getDummyUsers service uses the fetch api which returns a promise by default,
-    // exceptions are handled in the service.
-    getDummyUsers().then(users =>
-      this.setState({
-        users
-      })
-    );
+    this.props.loadCars();
   }
   renderUser = user => {
     const { id, name } = user;
@@ -25,7 +18,15 @@ class App extends Component {
     );
   };
   render() {
-    const { users } = this.state;
+    const { error, loading, users } = this.props;
+
+    if (error) {
+      return <div>Error! {error.message}</div>;
+    }
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
     return (
       <div>
         <header className="app-header">
@@ -38,4 +39,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    loadCars: () => dispatch(fetchCars())
+  };
+};
+
+const mapStateToProps = state => ({
+  users: state.cars.inventory,
+  loading: state.cars.loading,
+  error: state.cars.error
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

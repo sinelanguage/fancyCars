@@ -2,8 +2,14 @@ import SERVER_URL from "../constants/server-url";
 
 export default function getDummyUsers() {
   return fetch(`${SERVER_URL}/users`)
-    .then(res => res.json())
-    .catch(err =>
-      console.error(`Users data not found due to the following error: ${err}`)
-    );
+    .then(handleErrors)
+    .then(res => res.json());
+}
+
+// Fetch API does not handle http errors on its own
+function handleErrors(response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
 }
