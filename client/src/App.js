@@ -19,6 +19,7 @@ class App extends Component {
   };
   render() {
     const { error, loading, users } = this.props;
+    console.log("USERS: ", users);
 
     if (error) {
       return <div>Error! {error.message}</div>;
