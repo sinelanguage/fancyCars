@@ -9,17 +9,16 @@ class App extends Component {
   componentDidMount() {
     this.props.loadCars();
   }
-  renderUser = user => {
-    const { id, name } = user;
+  renderUser = car => {
+    const { id, name, availability } = car;
     return (
       <li key={id}>
-        id: {id} name: {name}
+        id: {id} name: {name} availability: {availability}
       </li>
     );
   };
   render() {
-    const { error, loading, users } = this.props;
-    console.log("USERS: ", users);
+    const { error, loading, cars } = this.props;
 
     if (error) {
       return <div>Error! {error.message}</div>;
@@ -34,7 +33,7 @@ class App extends Component {
           <img src={logo} className="app-logo" alt="logo" />
           <h1 className="app-title">Welcome to React</h1>
         </header>
-        <ul>{users.map(user => this.renderUser(user))}</ul>
+        <ul>{cars.map(car => this.renderUser(car))}</ul>
       </div>
     );
   }
@@ -47,7 +46,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => ({
-  users: state.cars.inventory,
+  cars: state.cars.inventory,
   loading: state.cars.loading,
   error: state.cars.error
 });

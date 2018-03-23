@@ -1,8 +1,8 @@
 import SERVER_URL from "../constants/server-url";
-import handleErrors from "./handleHttpErrors";
+import handleHttpErrors from "./handleHttpErrors";
 
 export default function getAvailbility(id) {
   return fetch(`${SERVER_URL}/availability/${id}`)
-    .then(handleErrors)
+    .then(handleHttpErrors)
     .then(res => res.json());
 }
