@@ -4,16 +4,22 @@ import { fetchCars } from "./redux/actions/cars.thunk";
 import HomePageComponent from "./pages/homepage.component";
 import logo from "./logo.svg";
 import "./app.css";
+import {
+  sortCarsAlphabetically,
+  sortCarsByAvailability,
+  sortCarsDefault
+} from "./redux/actions/cars.actions";
 
 class App extends Component {
   componentDidMount() {
-    this.props.loadCars();
+    this.props.fetchCars();
   }
-  renderUser = car => {
-    const { id, name, availability } = car;
+  renderCar = car => {
+    const { id, img, make, model, year, availability } = car;
     return (
       <li key={id}>
-        id: {id} name: {name} availability: {availability}
+        id: {id} image: {img} make: {make} model: {model} year: {year}{" "}
+        availability: {availability}
       </li>
     );
   };
@@ -29,12 +35,17 @@ class App extends Component {
     }
     return (
       <div>
-        {/* <header className="app-header">
-          <img src={logo} className="app-logo" alt="logo" />
-          <h1 className="app-title">Welcome to React</h1>
-        </header>
-        <ul>{cars.map(car => this.renderUser(car))}</ul> */}
         <HomePageComponent />
+        <button onClick={() => this.props.sortCarsAphabetically()}>
+          Sort by Name
+        </button>
+        <button onClick={() => this.props.sortCarsByAvailability()}>
+          Sort by Availability
+        </button>
+        <button onClick={() => this.props.sortCarsDefault()}>
+          Sort by Default Settings
+        </button>
+        <ul>{cars.map(car => this.renderCar(car))}</ul>
       </div>
     );
   }
@@ -42,7 +53,10 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadCars: () => dispatch(fetchCars())
+    fetchCars: () => dispatch(fetchCars()),
+    sortCarsAphabetically: () => dispatch(sortCarsAlphabetically()),
+    sortCarsByAvailability: () => dispatch(sortCarsByAvailability()),
+    sortCarsDefault: () => dispatch(sortCarsDefault())
   };
 };
 
