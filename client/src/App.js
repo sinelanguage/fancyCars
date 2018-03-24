@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import getDummyUsers from "./services/dummy-users";
 import { fetchCars } from "./redux/actions/cars.thunk";
+import HomePageComponent from "./pages/homepage.component";
 import logo from "./logo.svg";
 import "./app.css";
 
@@ -29,11 +29,12 @@ class App extends Component {
     }
     return (
       <div>
-        <header className="app-header">
+        {/* <header className="app-header">
           <img src={logo} className="app-logo" alt="logo" />
           <h1 className="app-title">Welcome to React</h1>
         </header>
-        <ul>{cars.map(car => this.renderUser(car))}</ul>
+        <ul>{cars.map(car => this.renderUser(car))}</ul> */}
+        <HomePageComponent />
       </div>
     );
   }
