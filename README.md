@@ -24,4 +24,4 @@ The third tier is the API middleware, Client connection services, Component for 
 
 The fourth tier is the client layer where we config and deliver web, touch screen, low bandwidth and AODA Optimized, Mobile Phone specific, Smart TV and a suite of internal in store client custom configs. This is the core react/redux app.
 
-Include pic here
+(https://github.com/sinelanguage/fancyCars/blob/master/QuestionTwo.svg)
