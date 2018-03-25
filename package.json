@@ -1,0 +1,22 @@
+{
+  "name": "fancy-cars",
+  "version": "1.0.0",
+  "description": "Demo app for Walmart",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  },
+  "scripts": {
+    "clientSetup": "cd client && yarn install",
+    "serverSetup": "cd server && npm install",
+    "setup":
+      "concurrently --kill-others-on-fail \"yarn serverSetup\" \"yarn clientSetup\"",
+    "client": "cd client && yarn start",
+    "server": "cd server && yarn start",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Winick",
+  "license": "ISC"
+}
