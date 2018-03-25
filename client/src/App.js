@@ -8,15 +8,6 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchCars();
   }
-  renderCar = car => {
-    const { id, img, make, model, year, availability } = car;
-    return (
-      <li key={id}>
-        id: {id} image: {img} make: {make} model: {model} year: {year}{" "}
-        availability: {availability}
-      </li>
-    );
-  };
   render() {
     const { error, loading, cars } = this.props;
 
@@ -29,8 +20,7 @@ class App extends Component {
     }
     return (
       <div style={{ marginTop: "10em" }}>
-        <HomePageComponent />
-        <ul>{cars.map(car => this.renderCar(car))}</ul>
+        <HomePageComponent cars={cars} />
       </div>
     );
   }
