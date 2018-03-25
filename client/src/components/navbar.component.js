@@ -1,11 +1,14 @@
 import React from "react";
+import { Container, Menu } from "semantic-ui-react";
 
 export default () => {
   return (
-    <nav className="uk-navbar-container">
-      <div className="uk-navbar-left">
-        <span className="uk-navbar-item uk-logo">Fancy Cars</span>
-      </div>
-    </nav>
+    <Menu fixed="top" inverted>
+      <Container fluid>
+        <Menu.Item as="h1" header>
+          FancyCars.ca
+        </Menu.Item>
+      </Container>
+    </Menu>
   );
 };

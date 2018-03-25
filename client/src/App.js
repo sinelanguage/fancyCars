@@ -2,13 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchCars } from "./redux/actions/cars.thunk";
 import HomePageComponent from "./pages/homepage.component";
-import logo from "./logo.svg";
-import "./app.css";
-import {
-  sortCarsAlphabetically,
-  sortCarsByAvailability,
-  sortCarsDefault
-} from "./redux/actions/cars.actions";
+import "../node_modules/semantic-ui-css/semantic.min.css";
 
 class App extends Component {
   componentDidMount() {
@@ -34,17 +28,8 @@ class App extends Component {
       return <div>Loading...</div>;
     }
     return (
-      <div>
+      <div style={{ marginTop: "10em" }}>
         <HomePageComponent />
-        <button onClick={() => this.props.sortCarsAphabetically()}>
-          Sort by Name
-        </button>
-        <button onClick={() => this.props.sortCarsByAvailability()}>
-          Sort by Availability
-        </button>
-        <button onClick={() => this.props.sortCarsDefault()}>
-          Sort by Default Settings
-        </button>
         <ul>{cars.map(car => this.renderCar(car))}</ul>
       </div>
     );
@@ -53,10 +38,7 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCars: () => dispatch(fetchCars()),
-    sortCarsAphabetically: () => dispatch(sortCarsAlphabetically()),
-    sortCarsByAvailability: () => dispatch(sortCarsByAvailability()),
-    sortCarsDefault: () => dispatch(sortCarsDefault())
+    fetchCars: () => dispatch(fetchCars())
   };
 };
 
