@@ -40,4 +40,4 @@ I would first level everyone up on the latest architecture, organize lunch and l
 
 ## What would releases look like?
 
-Because we are using a mono repo,
+Because we are using a mono repo; teams can work autonomously. The key is that we would merge into a psudo trunk branch called "develop", which would trigger a dev build. Any team can merge into at any time, but we would make timed boxed releases into master where once every few weeks we would have a release into master and build into a preprod staging for QA to do a master pass before we push to prod.
