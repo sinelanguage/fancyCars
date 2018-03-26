@@ -8,7 +8,7 @@ import chaiEnzyme from "chai-enzyme";
 
 chai.use(chaiEnzyme());
 
-import App from "./app";
+import App from "./App";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
