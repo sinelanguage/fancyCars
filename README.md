@@ -26,7 +26,7 @@ The fourth tier is the client layer where we config and deliver web, touch scree
 
 ![Front End Architecture](https://github.com/sinelanguage/fancyCars/blob/master/QuestionTwo.png)
 
-#Question 3
+# Question 3
 
 ## Ideal Architecture
 
