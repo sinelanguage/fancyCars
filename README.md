@@ -8,6 +8,6 @@ FancyCars is a full stack SPA. Front end was developed using React/Redux. It was
 2.  `yarn` or `npm install`
 3.  `yarn setup` or `npm run setup`
 4.  `yarn dev` or `npm run dev`
-5.  If Chrome is your default browser, it should open the app to `localhost:3000` and it should look like the following screenshot
+5.  That command should open the app to `localhost:3000` and it should look like the following screenshot
 
 ![FancyCars.ca](https://github.com/sinelanguage/fancyCars/blob/master/fancyCars.png)
